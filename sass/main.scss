@@ -1,0 +1,70 @@
+
+// partials
+@import './reset';
+@import './variable';
+
+//functions
+@function Size($fontsize){
+    @return map-get($font-sizes, $fontsize);
+}
+
+// mixin
+// @mixin flexcenter{
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+// }
+@mixin flexcenter($direction){
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction:$direction;
+}
+
+@mixin theme($light-theme:true){
+    @if $light-theme{
+        background-color:#ec1303;
+        color:#000;
+    }
+}
+
+
+@mixin mobile{
+    @media (max-width:$mobile){
+        @include flexcenter(column);
+        background-color:blue;
+    }
+}
+
+body{
+    background-color:$primary-color;
+    
+}
+
+//nested styling
+.header{
+    @include flexcenter(row);
+    width:100%;
+    background-color:$primary_white;
+
+    #{&}_title1{
+        color:$text-color;
+        font-size:Size(big);
+        &:hover{
+            color:yellow;
+        }
+    }
+    #{&}_title2{
+        @extend .header_title1;
+        &:hover{
+            color:rgb(23, 8, 236);
+        }
+    }
+    @include mobile;
+}
+
+
+
+.light{
+    @include theme($light-theme:true);
+}

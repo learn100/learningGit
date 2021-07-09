@@ -1,0 +1,12 @@
+// sass variables
+$primary-color:#ff4500;
+$primary_white:#fff;
+$text-color:rgb(241, 6, 6);
+//scss map(),map-get(name,key)
+$font-sizes:(
+    "big":95px,
+    "small":15px,
+    "medium":20px
+);
+
+$mobile:500px;
